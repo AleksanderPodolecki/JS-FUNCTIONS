@@ -1,0 +1,137 @@
+#include <stdio.h>
+
+//Zadanie 2
+#define X 4
+#define Y 4
+#define Z 4
+
+int Zadanie1(void);
+int Zadanie2(void);
+int Zadanie3(void);
+int Zadanie4(void);
+
+int main(void)
+{
+	int s;
+
+	do
+	{
+		printf("Ktore zadanie wyswietlic?\n");
+		printf("1. Zadanie 1\n2. Zadanie 2\n3. Zadanie 3\n4. Zadanie 4\n5. Wyjscie\n");
+		printf("Wybor: ");
+		scanf(" %d", &s);
+
+		switch(s)
+		{
+			case 1:
+				printf("\n");
+				Zadanie1();
+				printf("\n");
+				break;
+			case 2:
+				printf("\n");
+				Zadanie2();
+				printf("\n");
+				break;
+			case 3:
+				printf("\n");
+				Zadanie3();
+				printf("\n");
+				break;
+			case 4:
+				printf("\n");
+				Zadanie4();
+				printf("\n");
+				break;
+		}
+	}while(s != 5);
+
+	return 1;
+}
+
+//Zadanie 1
+int Zadanie1(void)
+{
+	char Slowo[10] = "lokomotywa";
+	char *ptr = Slowo;
+	int i = 0;
+
+	printf("Pozycje: ");
+	while(i != 9)
+	{
+		if(*(ptr+i) == 'o')
+		{
+			printf("%d ", i+1);
+		}
+		i++;
+	}
+	printf("\n");
+	return 0;
+}
+
+
+//Zadanie 2 ?
+int Zadanie2(void)
+{
+	int cube[X][Y][Z];
+	int i=0,j=0,k=0;
+
+	for(i=0;i<4;i++)
+	{
+		for(j=0;j<4;j++)
+		{
+			for(k=0;k<4;k++)
+			{
+				cube[i][j][k] = 0;
+			}
+		}
+	}
+
+	for(i=0;i<4;i++)
+	{
+		for(j=0;j<4;j++)
+		{
+			for(k=0;k<4;k++)
+			{
+				printf("%d ", cube[i][j][k]);
+			}
+			printf("\n");
+		}
+		printf("\n");
+	}
+	printf("\n");
+
+	return 0;
+}
+
+//Zadanie 3
+int Zadanie3(void)
+{
+	int one = 1;
+	int *a = &one;
+	int **b = &a;
+	int ***c = &b;
+	int ****d =	&c;
+	int *****e = &d;
+	
+	printf("Wartosc one z e: %d\n", *****e);
+	printf("Adres d z e: %p\n", e);
+	printf("Adres b z d: %p\n", *d);
+	return 0;
+}
+
+
+//Zadanie 4
+int Zadanie4(void)
+{
+	int tab[2][2][2][2] = 
+		{{{{0,1},{2,3}},{{4,5},{6,7}}},
+		{{{8,9},{10,11}},{{12,13},{14,15}}}};
+	int (*do_druku)[2][2][2] =	tab;
+	
+	//printf("Szukane: %d\n", tab[0][1][0][0]);
+	printf("Wartosc 1: %d\n", (*do_druku)[1][0][0]);
+	printf("Wartosc 2: %d\n", (*do_druku+1)[1][1][1]);
+	
+	return 0;
+}
