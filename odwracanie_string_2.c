@@ -1,10 +1,13 @@
 #include<stdio.h>
-
+//#include<string.h>
+        
 void main()
 {
-    int i;
-    char str[10] = "olek123";
-
+    int i, n;
+    char str[10] = "aleksander";
+    
+    //n=strlen(str);
+    
     printf("\nOdwrocone slowo to: ");
     for(i=10;i>=0;i--) //i = wielkosc str
     {
